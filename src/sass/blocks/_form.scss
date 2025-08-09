@@ -76,7 +76,7 @@ form {
 
 
 
-    button {
+    .button {
         width: clamp(150px, 17vw, 250px);
         max-width: 80%;
         height: 60px;
@@ -85,12 +85,51 @@ form {
         border: none;
         box-shadow: 0px 0px 10px #c0c0c0;
         background: rgba(#cbaeae, .5);
+        &:active {
+            transform: scale(.9);
+            background: rgba(#ac3b61, .3);
+            color: #333;
+        }
+        &__touch {
+            transform: scale(.9);
+            background: rgba(#ac3b61, .3);
+            color: #333;
+        }
     }
 
 }
 
 
-
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #333;
+    color: #fff;
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: translateY(20px);
+    z-index: 9999;
+}
+.toast.show {
+    opacity: .7;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+.toast.success {
+    background-color: #ac3b61;
+}
+// .toast.error {
+//     background-color: #da192c;
+// }
+.toast.error {
+    background-color: #ac3b61; // При продакшен и подключении файла send.php вместо этой части кода использовать тот, что закомментирован выше
+}
 
 
 // .form {
