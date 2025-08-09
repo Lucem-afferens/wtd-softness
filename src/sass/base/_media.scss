@@ -1,0 +1,44 @@
+
+@media (max-width: 375px) {
+    .descr {
+        &_programm {
+            font-size: 12px;
+            span {
+                font-size: 14px;
+            }
+        }
+    }
+    .programm {
+        &__wrapper {
+            grid-template-columns: 75px 50vw;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .programm {
+        &__img {
+            &__for-dot {
+                width: 200px;
+            }
+        }
+    }
+}
+
+
+@media (hover: none) {
+    .main {
+        background-attachment: scroll;
+        height: 100svh;
+    }
+    .location {
+        &__img {
+            background-attachment: scroll;
+        }
+    }
+    .restaurant {
+        &__img {
+            background-attachment: scroll;
+        }
+    }
+}
