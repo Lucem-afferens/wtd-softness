@@ -113,7 +113,42 @@ playStopIcon.addEventListener('click', function () {
 }
 );
 
-
+ // Ниже - отправка формы с обраоткой на стороне серврера через send.php
+ document.querySelector("form").addEventListener("submit", function(e) {
+    e.preventDefault();
+  
+    const form = e.target;
+    const formData = new FormData(form);
+  
+    fetch("send.php", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      const toast = document.getElementById("form-toast");
+      toast.textContent = data.message;
+      toast.className = "toast show " + (data.success ? "success" : "error");
+  
+      if (data.success) {
+        form.reset();
+      }
+  
+      setTimeout(() => {
+        toast.className = "toast"; // скрыть сообщение
+      }, 8000);
+    })
+    .catch(() => {
+      const toast = document.getElementById("form-toast");
+    //   toast.textContent = "Сервер недоступен. Попробуйте позже.";
+      toast.textContent = "Спасибо! Ваш ответ получен!";  // Вместо сообщения об ошибке - показ сообщения об успехе (исключительно для публикации как примера работ, без хостинга (форма не отсылает к файлу send.php)). При продакшн запустить вместо этой строку выше
+      toast.className = "toast show error";
+  
+      setTimeout(() => {
+        toast.className = "toast";
+      }, 4000);
+    });
+  });
 
 // Preloader
 let loaded = false; // флаг, чтобы код выполнился один раз
