@@ -42,3 +42,19 @@
         }
     }
 }
+
+@media (min-width:1440px) {
+    .main {
+        background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75)) 0% 0%, url('/img/bg_main_1440_2x.webp') no-repeat 50%/cover fixed;
+    }
+    .location {
+        &__img {
+            background: url('/img/tayni_rubleva_1440_2x.webp') no-repeat 50% / cover fixed;
+        }
+    }
+    .restaurant {
+        &__img {
+            background: url('/img/turandot_1440_2x.webp') no-repeat 35%/cover fixed;
+        }
+    }
+}
