@@ -174,6 +174,31 @@ playStopIcon.addEventListener('click', function () {
   
 });
 
+//активация карты по клику на нее
+window.onload = function () {
+    window.deactivateOverlay = function (el) {
+        el.style.pointerEvents = 'none';
+        el.style.opacity = '0';
+    }
+
+    window.activateMap = function (container) {
+        const overlay = container.querySelector('.map-overlay');
+        if (overlay) {
+            overlay.style.pointerEvents = 'none';
+            overlay.style.opacity = '0';
+        }
+    }
+
+    window.deactivateMap = function (container) {
+        const overlay = container.querySelector('.map-overlay');
+        if (overlay) {
+            overlay.style.pointerEvents = 'auto';
+            overlay.style.opacity = '1';
+        }
+    }
+}
+
+
 // Preloader
 let loaded = false; // флаг, чтобы код выполнился один раз
 
